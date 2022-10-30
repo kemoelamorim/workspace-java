@@ -1,11 +1,11 @@
 package herdado;
 
-public class Administrador extends Funcionario implements Autenticavel {
-
+public class Cliente implements Autenticavel {
+  
   private AutenticadorUtil autenticador;
   
-  public Administrador(){
-    autenticador = new AutenticadorUtil();
+  public Cliente(){
+    this.autenticador = new AutenticadorUtil();
   }
 
   public void setSenha(int senha) {
@@ -13,6 +13,7 @@ public class Administrador extends Funcionario implements Autenticavel {
   }
 
   public boolean autentica(int senha) {
-    return this.autenticador.autentica(senha);
+    return autenticador.autentica(senha);
   }
+
 }

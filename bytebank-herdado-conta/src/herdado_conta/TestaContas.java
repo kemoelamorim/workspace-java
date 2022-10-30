@@ -1,6 +1,6 @@
 package herdado_conta;
-public class TestaContas {
 
+public class TestaContas {
   public static void main(String[] args) {
     ContaCorrente contaCorrente = new ContaCorrente(111, 111);
     contaCorrente.deposita(100);
