@@ -11,14 +11,14 @@ public class ContaCorrente extends Conta implements Tributavel{
     if (valor > 0) {
       super.saldo += valor;
     } else {
-      throw new Error("Valor " + valor + ", não pode ser depositado");
+      throw new RuntimeException("Valor " + valor + ", não pode ser depositado");
     }
     
   }
   @Override
-  public boolean saca(double valor) {
+  public void saca(double valor) throws SaldoInsuficienteException{
     double novoValor = valor + 0.2;
-    return super.saca(novoValor);
+    super.saca(novoValor);
   }
 
   @Override

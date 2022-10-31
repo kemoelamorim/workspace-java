@@ -13,22 +13,18 @@ public abstract class Conta {
     Conta.total++;
   }
 
-  public boolean saca(double valor) {
-    if (this.saldo >= valor && valor > 0) {
-      this.saldo -= valor;
-      return true;
+  public void saca(double valor) throws SaldoInsuficienteException{
+    if (this.saldo < valor) {
+      throw new SaldoInsuficienteException("O saldo " +this.saldo + " é insuficiente, para sacar o valor: "+ valor);
     }
-    return false;
+    this.saldo -= valor;
   }
 
   public abstract void deposita(double valor);
 
-  public boolean transfere(Conta contaDestino, double valor) {
-    if (this.saca(valor)) {
-      contaDestino.deposita(valor);
-      return true;
-    }
-    return false;
+  public void transfere(Conta contaDestino, double valor) throws SaldoInsuficienteException {
+    this.saca(valor);
+    contaDestino.deposita(valor);
   }
 
   public String toString() {
@@ -49,7 +45,7 @@ public abstract class Conta {
   }
   public void setNumero(int numero) {
     if(numero <= 0){
-      throw new Error("Não é possível criar uma conta com numero negativo.");
+      throw new RuntimeException("Não é possível criar uma conta com numero negativo.");
     }
     this.numero = numero;
   }
@@ -58,7 +54,7 @@ public abstract class Conta {
   }
   public void setAgencia(int agencia) {
     if(agencia <= 0){
-      throw new Error("Não é possível criar uma conta com agencia negativo.");
+      throw new RuntimeException("Não é possível criar uma conta com agencia negativo.");
     }
     this.agencia = agencia;
   }

@@ -10,7 +10,7 @@ public class ContaPoupanca extends Conta{
     if (valor > 0) {
       super.saldo += valor;
     } else {
-      throw new Error("Valor " + valor + ", não pode ser depositado");
+      throw new RuntimeException("Valor " + valor + ", não pode ser depositado");
     }
   }
 }

@@ -3,7 +3,12 @@ public class TestaTributaveis {
   public static void main(String[] args) {
     
     ContaCorrente cc = new ContaCorrente(1990, 190);
-    cc.deposita(100);
+    cc.deposita(-100);
+    try {
+      
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
     
     SeguroDeVida seguroDeVida = new SeguroDeVida();
     
