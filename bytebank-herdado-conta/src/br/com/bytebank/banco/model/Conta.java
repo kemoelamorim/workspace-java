@@ -1,4 +1,4 @@
-package herdado_conta;
+package br.com.bytebank.banco.model;
 
 public abstract class Conta {
   private static int total;
