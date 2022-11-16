@@ -67,4 +67,14 @@ public abstract class Conta {
   public static int getTotal() {
     return total;
   }
+  
+  public boolean ehIgual(Conta outraConta){
+    if(this.getAgencia() != outraConta.getAgencia()){
+      return false;
+    }
+    if(this.getNumero() != outraConta.getNumero()){
+      return false;
+    }
+    return true;
+  }
 }
