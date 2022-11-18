@@ -1,14 +1,16 @@
 package br.com.bytebank.banco.teste.util;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
 
 import br.com.bytebank.banco.model.Conta;
 import br.com.bytebank.banco.model.ContaCorrente;
 
-public class Teste {
+public class TestaArrayList {
   public static void main(String[] args) {
-    
-    ArrayList<Conta> lista = new ArrayList();
+    // Generics
+    List<Conta> lista = new Vector<Conta>();
     
     Conta cc1 = new ContaCorrente(1, 1);
     Conta cc2 = new ContaCorrente(3, 3);
@@ -17,7 +19,7 @@ public class Teste {
     lista.add(cc2);
     
     System.out.println("Tamanho: "+lista.size());
-    Conta cc = (Conta) lista.get(0);
+    Conta cc = lista.get(0);
     System.out.println("Numero da Conta: "+cc.getAgencia());
     
     lista.remove(0);
@@ -29,7 +31,7 @@ public class Teste {
     lista.add(cc3);
     lista.add(cc4);
     
-    for (Object ref : lista) {
+    for (Conta ref : lista) {
       System.out.println(ref);
     }
   }
