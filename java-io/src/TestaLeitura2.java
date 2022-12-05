@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class TestaLeitura2{
   public static void main(String[] args) throws IOException{
-    Scanner scanner = new Scanner(new File("java-io/contas.csv"));
+    Scanner scanner = new Scanner(new File("java-io/contas.csv"), "UTF-8");
     while (scanner.hasNextLine()) {
       String str = scanner.nextLine();
       //System.out.println(str);
