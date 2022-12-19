@@ -1,11 +1,13 @@
 package br.com.bytebank.banco.model;
 
-public abstract class Conta implements Comparable<Conta>{
+import java.io.Serializable;
+
+public abstract class Conta implements Comparable<Conta>, Serializable{
   private static int total;
   protected double saldo;
   private int agencia;
   private int numero;
-  private Cliente titular;
+  private transient Cliente titular;
 
   public Conta(int numero, int agencia){
     setNumero(numero);
